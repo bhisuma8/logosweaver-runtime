@@ -16,4 +16,4 @@ __all__ = ["ExecutableJudge","ExecutionContract","FigureState","IdentityJudge","
 
            "DialogueResponse","ResponseAdmission","ResponseEmitter","ResponseGate","ResponseMode","ResponseOutputBoundary","ResponsePermission","ResponseEmission"]
 
-----
+
