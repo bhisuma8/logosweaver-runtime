@@ -183,4 +183,4 @@ class SemanticFigure:
 
     execution_contract: ExecutionContract | None = None
 
-----
+
