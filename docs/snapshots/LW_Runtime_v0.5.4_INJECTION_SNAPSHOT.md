@@ -1,30 +1,46 @@
 # LogosWeaver Runtime v0.5.4 — Canonical Injection Snapshot
 
-> This snapshot preserves the supplied v0.5.4 FULL SOURCE baseline, applies only the E.5-approved `SemanticCondition` refinement to `models.py` and `__init__.py`, and appends the four E.2/E.3 evaluation tests subsequently synchronized to GitHub. The pre-refinement FULL SOURCE is not duplicated as a separate repository artifact.
+> This snapshot preserves the supplied v0.5.4 FULL SOURCE baseline, applies only the E.5-approved `SemanticCondition` refinement to `models.py` and `__init__.py`, and appends the behavioral evaluation and lifecycle evidence tests subsequently synchronized to GitHub from E.2/E.3 through F.4. The pre-refinement FULL SOURCE is not duplicated as a separate repository artifact.
 
 ## 01 — Original v0.5.4 Injection Baseline with Approved Source Refinement
 
 1. README.md
-2. logosweaver folder
+2. logosweaver folder/
     __init__.py
-    judges.py
     models.py
-    response_gate.py
     runtime.py
+    judges.py
+    response_gate.py
 
-3. tests folder
- test_dialogue_runtime_e2e_v05.py
- test_response_emitter_v05.py
- test_response_gate_v05.py
- test_response_output_boundary_v05.py
- test_runtime_v04.py
- test_user_a_fixture_v05.py
 
-    #### Phase E.2/E.3 evaluation artifacts synchronized to GitHub
+3. tests folder/
+    test_runtime_v04.py
+    test_response_gate_v05.py
+    test_user_a_fixture_v05.py
+    test_response_output_boundary_v05.py
+    test_response_emitter_v05.py
+    test_dialogue_runtime_e2e_v05.py
+    
+    `Add E.2 and E.3 behavioral evaluation tests`
     test_e2_behavioral_v05.py
     test_e2_execution_boundary_v05.py
     test_e2_trace_observability_v05.py
     test_e3_figure_scoped_boundary_v05.py
+      
+    `Add F.1-F.2 boundary evidence & continuity records`
+    test_f1_external_boundary_v05.py  
+    test_f1_external_input_boundary_v01.py  
+    test_f1_external_observation_boundary_v01.py 
+    test_f1_external_observation_contract_v01.py
+     
+    `Add F.3-F.4 lifecycle evidence and freeze records`
+    test_f3_birth_fixture_v01.py
+    test_f4_executable_fixture_v01.py  
+    test_f4_executed_state_transition_fixture_v01.py 
+    test_f4_execution_authorization_fixture_v01.py 
+    test_f4_life_fixture_v01.py 
+    test_f4_observed_state_transition_fixture_v01.py
+    test_f4_resonance_candidate_fixture_v01.py
 
 ----
 ## LogosWeaver Runtime v0.5.4
