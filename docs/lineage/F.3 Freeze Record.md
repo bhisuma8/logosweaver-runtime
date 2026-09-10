@@ -1,10 +1,8 @@
 ### F.3 Closure — Birth
 
-F.3에서 확보된 것은 다음과 같습니다.
-
-> **실제 Natural Language가 새로운 Figure의 Birth 경로로 연결될 수 있다.**
-
-최소 검증 경로:
+The following has been secured in F.3:
+> **Actual Natural Language can be linked to the birth path of a new Figure.**
+Minimum Verification Path:
 
 **Natural Language**  
 → **External Material**  
@@ -14,13 +12,12 @@ F.3에서 확보된 것은 다음과 같습니다.
 → **FIGURE_REGISTERED**  
 → **Figure-scoped Trace**
 
-그리고 두 개의 Natural Language 입력에 대해서도:
+And regarding two Natural Language inputs:
 
 **Input A → Figure A**  
 **Input B → Figure B**
 
-가 동일 Workspace 안에서 독립적으로 존재하며, 서로의 Figure identity/Trace를 침범하지 않는 것이 확인되었습니다.
-
-따라서:
+It has been confirmed that they exist independently within the same Workspace and do not encroach upon each other's Figure identity/Trace.
+Therefore:
 
 **F.3 Birth = PASS / CLOSED**

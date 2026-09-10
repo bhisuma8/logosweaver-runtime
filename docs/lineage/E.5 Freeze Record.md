@@ -26,13 +26,10 @@ E.5 CLOSED
 
 ---
 
-## 1. E.5의 목적
-
-E.5의 목적은 E.4에서 확정된 **Semantic Preservation Boundary**를 실제 Python representation으로 내려가면서, 기존 v0.5.4 Runtime의 동작 경계를 침범하지 않는지를 검증하는 것이었다.
-
-E.5는 Runtime을 재설계하지 않았다.
-
-특히 다음을 새로 구현하지 않았다.
+## 1. Purpose of E.5
+The purpose of E.5 was to verify that the **Semantic Preservation Boundary** established in E.4 does not encroach upon the existing v0.5.4 Runtime behavioral boundaries while moving down to the actual Python representation.
+E.5 did not redesign the Runtime.
+Specifically, the following were not newly implemented:
 
 ```text
 Automatic Fork
@@ -45,7 +42,7 @@ Automatic Merge
 Lounge Runtime
 ```
 
-E.5의 구현 대상은 **최소 semantic representation**이었다.
+The implementation target of E.5 was the **minimal semantic representation**.
 
 ---
 
@@ -53,7 +50,7 @@ E.5의 구현 대상은 **최소 semantic representation**이었다.
 
 ### `models.py`
 
-추가:
+Added:
 
 ```python
 @dataclass(frozen=True)
@@ -61,13 +58,7 @@ class SemanticCondition:
     expression: str
 ```
 
-변경:
-
-```python
-conditions: tuple[str, ...] = ()
-```
-
-→
+Changed:
 
 ```python
 conditions: tuple[SemanticCondition, ...] = ()
@@ -75,9 +66,8 @@ conditions: tuple[SemanticCondition, ...] = ()
 
 ### `__init__.py`
 
-`SemanticCondition` public export 추가.
-
-### 변경하지 않은 핵심 Runtime 구조
+`SemanticCondition` public export added.
+### Core Runtime Structures Not Changed
 
 ```text
 judges.py
@@ -89,15 +79,13 @@ FigureState
 STOP mechanism
 ```
 
-모두 기존 v0.5.4 구조를 유지한다.
+All maintain the existing v0.5.4 structure.
 
 ---
 
-# 3. SemanticCondition의 Ontological Position
-
-E.5에서 `SemanticCondition`은 **독립적인 Runtime Entity가 아니다.**
-
-그것은 `SemanticFigure` 내부의 semantic component다.
+# 3. Ontological Position of SemanticCondition
+In E.5, `SemanticCondition` is **not an independent Runtime Entity.**
+It is a semantic component within `SemanticFigure`.
 
 ```text
 SemanticFigure
@@ -109,7 +97,7 @@ SemanticFigure
           └── ...
 ```
 
-따라서 E.5에서는 다음을 도입하지 않는다.
+Therefore, E.5 does not introduce the following:
 
 ```text
 condition_id
@@ -119,7 +107,7 @@ ConditionManager
 ConditionLifecycle
 ```
 
-이것은 향후 독립적인 Identity가 필요하다는 operational evidence가 확보될 때까지 deferred 상태다.
+This remains in a deferred state until operational evidence for the necessity of a separate Identity is secured.
 
 ---
 
@@ -127,17 +115,15 @@ ConditionLifecycle
 
 ## E4-F05 — Record ≠ Preservation
 
-> **기록과 보존은 절대 동일하지 않다.**
-
-Trace, Event, Lineage 등의 기록이 존재한다는 사실만으로 이전 의미가 독립적으로 보존되었다고 간주하지 않는다.
+> **Record and preservation are never identical.**
+The mere existence of records such as Trace, Event, and Lineage does not mean the prior meaning is considered independently preserved.
 
 ---
 
 ## FNA-2
 
-> **오직 이전 의미의 독립적 실행 가능성이 단일 객체 내에서 오염·유실될 때에만 F₀ → F₁의 계보적 분기(Fork)가 합법화된다.**
-
-그리고 여기서 중요한 제한:
+> **Genealogical branching (Fork) of F₀ → F₁ is legitimized only when the independent executability of the previous meaning is contaminated or lost within a single object.**
+And a critical restriction here:
 
 ```text
 Fork justification
@@ -145,13 +131,13 @@ Fork justification
 Automatic Fork execution
 ```
 
-FNA-2는 Fork를 정당화할 수 있는 경계이지, Runtime에게 자동 Fork 명령을 내리는 mechanism이 아니다.
+FNA-2 is a boundary that can justify a Fork, not a mechanism that issues an automatic Fork command to the Runtime.
 
 ---
 
 ## Genealogical Weaving
 
-`F₀`가 Dormant가 되거나 Lounge로 이동하더라도:
+Even if `F₀` becomes Dormant or moves to the Lounge:
 
 ```text
 Identity
@@ -159,7 +145,7 @@ LineageRelation
 Reverse Trace
 ```
 
-는 파괴되지 않는다.
+are not destroyed.
 
 ```text
 Dormant
@@ -184,7 +170,7 @@ F₁
  └── C₁
 ```
 
-동일한 semantic representation 안에서 이전 의미 `C₀`를 계속 독립적으로 표현할 수 있는 경우.
+When the previous meaning `C₀` can continue to be represented independently within the same semantic representation.
 
 ### Result
 
@@ -197,7 +183,7 @@ Fork = NOT REQUIRED
 
 ## E5-FNA2 — Preservation Failure Candidate
 
-이전 의미를 동일한 representation 안에서 독립적으로 보존할 수 없는 상황을 표현한다.
+Represents a situation where the previous meaning cannot be independently preserved within the same representation.
 
 ### Result
 
@@ -207,19 +193,17 @@ Preservation Failure
 Fork Candidate
 ```
 
-단,
+However,
 
 ```text
 Automatic Fork = NO
 ```
 
-이다.
-
 ---
 
 ## E5-FNA3 — Insufficient Evidence
 
-보존 가능/불가능을 판단할 충분한 증거가 없는 경우:
+When there is insufficient evidence to judge preservation possibility/impossibility:
 
 ```text
 UNKNOWN
@@ -228,8 +212,6 @@ UNRESOLVED
     ↓
 STOP
 ```
-
-이다.
 
 ### Forbidden inference
 
@@ -249,7 +231,7 @@ Preservation
 
 # 6. 3+1 Judge Boundary
 
-E.5는 기존 3+1 Judge interface를 변경하지 않았다.
+E.5 did not change the existing 3+1 Judge interface.
 
 ```text
 Executable
@@ -258,7 +240,7 @@ Workspace Integrity
 Identity
 ```
 
-Judge들은 기존의:
+Judges evaluate SemanticFigure through the existing boundaries:
 
 ```text
 figure
@@ -266,19 +248,15 @@ contract
 context
 ```
 
-경계를 통해 SemanticFigure를 평가한다.
-
-E.5는 semantic preservation을 자동 판단하는 새로운 Judge를 만들지 않았다.
-
-따라서:
-
-> **Representation이 Judge boundary까지 전달되는 것과, 그 Representation의 semantic validity를 Judge가 자동으로 판정하는 것은 서로 다른 문제다.**
+E.5 did not create a new Judge to automatically determine semantic preservation.
+Therefore:
+> **The transmission of the Representation to the Judge boundary and the Judge's automatic determination of that Representation's semantic validity are separate issues.**
 
 ---
 
 # 7. STOP Boundary
 
-`UNRESOLVED`는 여전히 유효한 보존 상태다.
+`UNRESOLVED` remains a valid preservation state.
 
 ```text
 Insufficient Evidence
@@ -288,29 +266,27 @@ UNRESOLVED
 STOP
 ```
 
-STOP은 불확실성을 임의의 의미로 변환하지 않는다.
-
-따라서 E.5 implementation은 기존 STOP behavior를 변경하지 않았다.
+STOP does not convert uncertainty into arbitrary meaning.
+Therefore, the E.5 implementation did not change the existing STOP behavior.
 
 ---
 
 # 8. Lineage Boundary
 
-현재 Lineage는 Figure 수준에서 유지한다.
+Currently, Lineage is maintained at the Figure level.
 
 ```text
 F₀ ── LineageRelation ──> F₁
 ```
 
-별도의:
+No separate:
 
 ```text
 ConditionLineage
 ```
 
-를 만들지 않는다.
-
-이는 현재 SemanticCondition이 독립적인 Runtime Identity를 갖지 않는다는 E.5의 결정과 일관된다.
+is created.
+This is consistent with the E.5 decision that SemanticCondition does not currently have an independent Runtime Identity.
 
 ---
 
@@ -338,11 +314,8 @@ E5-FNA3  PASS
 ========================
 ```
 
-따라서 E.5의 가장 중요한 구현적 결론은:
-
-> **Semantic representation을 확장했음에도 기존 v0.5.4 Runtime behavioral boundary가 유지되었다.**
-
-이다.
+Therefore, the most important implementation conclusion of E.5 is:
+> **The existing v0.5.4 Runtime behavioral boundary was maintained despite the expansion of the semantic representation.**
 
 ---
 
@@ -350,13 +323,13 @@ E5-FNA3  PASS
 
 > **E.5 successfully converts the semantic-preservation representation established in E.4 into a minimal immutable data representation without expanding Runtime authority. The existing v0.5.4 execution, Judge, STOP, Lineage, and Response boundaries remain behaviorally intact.**
 
-이를 E.5의 공식 Closure Statement로 동결한다.
+This is frozen as the official E.5 Closure Statement.
 
 ---
 
 # 11. E.5 Deferred Items
 
-다음 항목들은 E.5에서 의도적으로 열어둔다.
+The following items are intentionally left open in E.5.
 
 ```text
 Condition Identity
@@ -371,13 +344,13 @@ Lounge Storage Model
 Lounge Guide
 ```
 
-이들은 **미완성 구현이 아니라 E.5 범위 밖의 문제**다.
+These are **not incomplete implementations, but issues outside the scope of E.5.**
 
 ---
 
 # 12. E.5 → E.6 Continuity
 
-E.5에서 확정된 것은:
+Items confirmed in E.5 are:
 
 ```text
 Semantic representation
@@ -389,9 +362,7 @@ FNA-1 / FNA-2 / FNA-3
 Lineage preservation
 ```
 
-이다.
-
-E.6에서는 이것을:
+In E.6, this is expanded to:
 
 ```text
 Active Workspace
@@ -407,6 +378,4 @@ Reverse Trace
 Implementation Gate
 ```
 
-로 확장한다.
-
-그러나 이 확장은 **Runtime의 Execution Authority를 확장하는 방식으로 이루어져서는 안 된다.**
+However, this expansion **must not be carried out in a way that expands the Runtime's Execution Authority.**

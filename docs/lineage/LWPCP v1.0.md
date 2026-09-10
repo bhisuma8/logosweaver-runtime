@@ -15,28 +15,21 @@
 
 ### 1. Protocol Purpose
 
-이 문서는 LogosWeaver의 Phase A부터 Phase D까지 진행된 설계 계보를 압축하여 다음 세션이 전체 맥락을 다시 추론하지 않고도 현재의 설계 위치에서 출발할 수 있도록 한다.
+This document compresses the design lineage from Phase A to Phase D so that the next session can start from the current design position without having to re-infer the entire context.
 
-이 문서는 새로운 설계를 위한 명세서가 아니다.
+This document is not a specification for a new design.
 
-그 역할은 다음 문서인 `LogosWeaver Runtime Specification v1.0`이 담당한다.
-
-본 문서의 역할은 다음과 같다.
-
-- 무엇이 각 Phase에서 탐구되었는가
-    
-- 무엇이 현재까지 살아남았는가
-    
-- 무엇이 폐기되거나 보류되었는가
-    
-- 무엇이 다음 구현 단계로 전달되는가
-    
-- 어떤 개념은 아직 정의하지 않아야 하는가
-    
+That role is handled by the subsequent document, `LogosWeaver Runtime Specification v1.0`.
+The roles of this document are as follows:
+- What was explored in each Phase
+- What has survived to the present
+- What was discarded or pended
+- What is being transferred to the next implementation stage
+- Which concepts should not yet be defined
 
 ### 2. Continuity Principle
 
-LogosWeaver의 설계 계보는 다음과 같이 압축된다.
+The design lineage of LogosWeaver is compressed as follows.
 
 ```text
 Phase A
@@ -56,36 +49,28 @@ Specification
 Implementation Cycle
 ```
 
-각 Phase는 이전 Phase를 폐기하는 것이 아니라, 이전 Phase의 구조를 새로운 실행 조건으로 이동시킨다.
-
-따라서 Phase 간 관계는 replacement가 아니라 lineage이다.
+Each Phase does not discard the previous Phase; instead, it shifts the structure of the previous Phase into new execution conditions.
+Therefore, the relationship between Phases is not replacement, but lineage.
 
 ### 3. Phase A — Philosophy & Identity
 
-Phase A의 핵심 질문은 LogosWeaver가 무엇인가였다.
-
-LogosWeaver는 일반적인 LLM 생성기가 아니라 자연어와 LLM 사이에 위치하여 입력의 구조적 조건을 먼저 다루는 시스템으로 방향이 설정되었다.
-
-핵심 방향:
+The core question of Phase A was: "What is LogosWeaver?"
+LogosWeaver was positioned not as a general LLM generator, but as a system located between natural language and the LLM, primarily dealing with the structural conditions of input.
+Core Directions:
 
 - Pre-LLM Natural Language Compiler
-    
-- 자연어 입력의 무질서한 생성 이전에 구조를 확인
-    
-- 사용자의 표면적 질문과 실제 필요를 구분
-    
-- 의미의 생성보다 의미의 조건을 먼저 확인
-    
-- LogosWeaver 자체가 모든 질문에 답하는 General-purpose Generator가 아님
-    
+- Confirm structure before the disordered generation of natural language input
+- Distinguish between the user's surface-level questions and actual needs
+- Verify the conditions of meaning before the generation of meaning
+- LogosWeaver itself is not a General-purpose Generator that answers all questions
 
-LogosWeaver는 사용자의 입력을 즉시 답변으로 변환하기보다, 의미적 구조가 성립할 수 있는 조건을 탐색한다.
+Rather than immediately converting user input into an answer, LogosWeaver explores the conditions under which a semantic structure can be established.
 
 ### 4. Phase B — Compiler Architecture
 
-Phase B에서는 LogosWeaver의 공학적 구조가 구체화되었다.
+In Phase B, the engineering structure of LogosWeaver was concretized.
 
-핵심 구성:
+Core Components:
 
 ```text
 Natural Language
@@ -103,7 +88,7 @@ Response / Semantic Unit
 Lineage
 ```
 
-또한 System Ontology의 다섯 존재 범주가 정의되었다.
+Furthermore, the five existential categories of System Ontology were defined.
 
 ```text
 Definition / Container
@@ -113,15 +98,14 @@ Contract
 State
 ```
 
-이 다섯 범주는 Runtime에서 의미적 대상을 단순한 텍스트가 아니라 구조화된 존재로 취급하기 위한 기반이다.
+These five categories are the foundation for treating semantic objects as structured entities rather than mere text in the Runtime.
 
 ### 5. Phase B — Responsibility Structure
 
-9-Stage Responsibility Chain이 정의되었다.
+A 9-Stage Responsibility Chain was defined.
+The core of this structure is that each stage has different responsibilities, and the judgment of one layer is not replaced by another layer without authorization.
 
-이 구조의 핵심은 각 단계가 서로 다른 책임을 가지며, 한 계층의 판단을 다른 계층이 무단으로 대체하지 않는 것이다.
-
-Phase D에서 특히 중요한 종착점은 다음 두 단계였다.
+The crucial endpoints in Phase D were the following two stages:
 
 ```text
 Response Validation
@@ -129,11 +113,11 @@ Response Validation
 Approved Semantic Unit
 ```
 
-그러나 Phase C와 D의 실험을 통해 `Approved Semantic Unit`을 단순 승인 플래그로 정의하는 것은 충분하지 않다는 것이 확인되었다.
+However, experiments in Phase C and D confirmed that defining the `Approved Semantic Unit` simply as an approval flag was insufficient.
 
 ### 6. Phase B — 3+1 Judge Architecture
 
-Runtime Orchestrator 내부의 Judge 구조:
+Judge structure within the Runtime Orchestrator:
 
 ```text
 Runtime Orchestrator
@@ -148,35 +132,25 @@ Runtime Orchestrator
     └── Version Control
 ```
 
-세 Execution Judge는 실행 가능성, 필요의 무결성, Workspace의 무결성을 판단한다.
-
-Identity Manager는 Semantic Figure의 Identity와 Version/Lineage 관계를 관리한다.
-
-중요한 원칙:
-
-**3+1 Judge는 Semantic Unit의 존재론적 정의 자체가 아니라, Runtime에서 승인과 실행을 위한 공학적 판단 구조이다.**
+The three Execution Judges determine executability, the integrity of the need, and the integrity of the Workspace.
+The Identity Manager manages the Identity of Semantic Figures and their Version/Lineage relationships.
+Key Principle:
+**The 3+1 Judge is not the ontological definition of the Semantic Unit itself, but an engineering judgment structure for approval and execution within the Runtime.**
 
 ### 7. Phase C — Governance & Commons
 
-Phase C에서는 Runtime에서 발생한 의미와 Commons에서 시간적으로 유지되는 의미를 구분했다.
+Phase C distinguished between meanings generated in the Runtime and meanings maintained temporally in the Commons.
+Core Principle:
+> Runtime gives birth to meaning (Birth), and Commons allows meaning to endure time (Life).
+Therefore, the stability of a Semantic Unit is not fully proven by the approval of a single Runtime alone.
+Repeated Runtimes, independent Lineages, Approved Mutations, and the accumulation of Community and Commons allow the long-term survival of meaning to be observed.
 
-핵심 원칙:
+### 8. Phase C — Semantic Figure and Lineage
 
-> Runtime은 의미를 탄생시키고(Birth), Commons는 의미가 시간을 견디도록 만든다(Life).
-
-따라서 Semantic Unit의 안정성은 단일 Runtime의 승인만으로 완전히 증명되지 않는다.
-
-반복되는 Runtime, 독립적인 Lineage, Approved Mutation, Community와 Commons의 축적이 장기적인 의미의 생존을 관찰할 수 있게 한다.
-
-### 8. Phase C — Semantic Figure와 Lineage
-
-Semantic Figure는 아직 Semantic Unit이 아닌 후보적 의미 구조이다.
-
-Semantic Figure가 새로운 Runtime에서 발견되었다고 해서 기존 Figure와 동일하다고 즉시 선언해서는 안 된다.
-
-반대로 물리적 Domain이 다르다는 이유만으로 의미적 관계를 즉시 부정해서도 안 된다.
-
-따라서 Runtime은 다음을 분리해야 한다.
+A Semantic Figure is a candidate semantic structure that is not yet a Semantic Unit.
+Finding a Semantic Figure in a new Runtime does not mean it should be immediately declared identical to an existing Figure.
+Conversely, a semantic relationship should not be immediately denied simply because the physical Domain is different.
+Therefore, the Runtime must separate the following:
 
 ```text
 Similarity
@@ -189,32 +163,27 @@ Lineage
 
 ### 9. Phase C — Semantic Unit Status
 
-Semantic Unit에 대한 최종 존재론적 정의는 유보한다.
-
-현재 유지되는 것은 Operational Candidate이다.
+The final ontological definition of the Semantic Unit is pended.
+What is currently maintained is the Operational Candidate.
 
 ```text
 Semantic Unit
 =
-서로 다른 Runtime과 Workspace에서
-핵심 Semantic Identity와 invariant를 보존하면서
-재인스턴스되고,
-실행되며,
-새로운 Lineage를 생성할 수 있는
-지속 가능한 Semantic Figure의 상태
+A state of a sustainable Semantic Figure that can be 
+re-instantiated, executed, and generate new Lineage 
+while preserving the core Semantic Identity and 
+invariants across different Runtimes and Workspaces.
 ```
 
-이는 최종 Ontological Definition이 아니다.
+This is not the final Ontological Definition.
 
 ### 10. Phase D — Runtime & Implementation
 
-Phase D의 핵심 질문:
+Core Question of Phase D:
+> What states and events occur in the Runtime from the moment a Semantic Figure enters the Runtime until it stabilizes as a Semantic Unit?
+In Phase D, example-driven Runtime tests were performed.
 
-> Semantic Figure가 Runtime에 들어오는 순간부터 Semantic Unit으로 안정화될 때까지 Runtime에서는 어떤 상태와 사건이 발생하는가?
-
-Phase D에서는 예제 중심의 Runtime 테스트를 수행했다.
-
-특히 다음을 관찰했다.
+Specifically, the following were observed:
 
 ```text
 Semantic Figure Candidate
@@ -238,13 +207,10 @@ Reinstantiation
 
 ### 11. Phase D — Convergence
 
-Convergence는 Merge가 아니다.
-
-또한 Convergence가 발생했다고 해서 기존 Lineage가 소멸하지 않는다.
-
-Convergence는 여러 독립적인 Lineage에서 반복적으로 나타난 invariant가 Runtime에서 관찰되고 명시화되는 사건으로 이해한다.
-
-따라서:
+Convergence is not a Merge.
+Furthermore, the occurrence of Convergence does not mean the existing Lineage is annihilated.
+Convergence is understood as an event where invariants repeatedly appearing in several independent Lineages are observed and manifested in the Runtime.
+Therefore:
 
 ```text
 Convergence
@@ -255,9 +221,8 @@ Convergence
 
 ### 12. Phase D — False Positive Boundary
 
-Developer G 사례를 통해 다음이 확인되었다.
-
-표면적인 구조:
+The Developer G case confirmed the following.
+Surface structure:
 
 ```text
 Condition Change
@@ -267,9 +232,8 @@ Intervention
 Re-evaluation
 ```
 
-만으로 Semantic Figure의 공명을 선언할 수 없다.
-
-실제 구조가:
+This alone cannot declare the resonance of a Semantic Figure.
+The actual structure might be:
 
 ```text
 Condition Repeat
@@ -277,17 +241,14 @@ Condition Repeat
 Repeated Action
 ```
 
-일 수 있기 때문이다.
-
-따라서:
+Therefore:
 
 > Structural resemblance is not sufficient for semantic resonance.
 
 ### 13. Phase D — False Negative Boundary
 
-물리적 Domain이 다르다는 이유만으로 Semantic Figure의 공명을 부정해서도 안 된다.
-
-따라서:
+The resonance of a Semantic Figure must not be denied simply because the physical Domain is different.
+Therefore:
 
 ```text
 Physical Difference
@@ -295,13 +256,11 @@ Physical Difference
 Semantic Difference
 ```
 
-이다.
-
-Runtime은 물리적 형태와 Semantic invariant를 별도로 관찰해야 한다.
+The Runtime must observe the physical form and the Semantic invariant separately.
 
 ### 14. Phase D — Identity Boundary
 
-Semantic Figure의 Identity는 단순한 문자열 ID가 아니다.
+The Identity of a Semantic Figure is not a simple string ID.
 
 ```text
 Identifier
@@ -309,21 +268,19 @@ Identifier
 Identity
 ```
 
-예:
+Example:
 
 ```text
 SF-0003
 ```
 
-은 Identifier이다.
-
-그 Identifier가 가리키는 의미적 구조의 지속성과 invariant 보존이 Identity 문제이다.
-
-따라서 Mutation 이후 Identity가 보존되는지 여부를 별도로 판단해야 한다.
+is an Identifier.
+Whether Identity is preserved after a Mutation, based on the continuity of the semantic structure and the preservation of invariants pointed to by that Identifier, is the core issue of Identity.
+Therefore, whether Identity is preserved after a Mutation must be judged separately.
 
 ### 15. Phase D — Boundary Refinement
 
-D_31에서 중요한 추가 원칙이 발견되었다.
+An additional important principle was discovered in D_31.
 
 ```text
 Probability
@@ -339,21 +296,19 @@ Possibility
 State
 ```
 
-예를 들어:
+For example:
 
 ```text
 condition-change likelihood is high
 ```
 
-를
+must not be converted into:
 
 ```text
 condition has changed
 ```
 
-로 변환해서는 안 된다.
-
-또한:
+Furthermore, refining the Semantic Boundary more precisely, such as:
 
 ```text
 Condition
@@ -361,130 +316,105 @@ Condition
 C₁ / C₂
 ```
 
-와 같이 Semantic Boundary를 더 정밀하게 구분하는 것은 그 자체로 Semantic Mutation이 아니다.
-
-따라서:
+is not a Semantic Mutation in itself.
+Therefore:
 
 > Boundary Refinement must not be mistaken for Semantic Mutation.
 
 ### 16. STOP v2.0 Continuity
 
-`SYSTEM PROTOCOL: STOP v2.0`은 Phase A–D 전체를 관통하는 **Meta-Level Continuity Protocol**이다.
+`SYSTEM PROTOCOL: STOP v2.0` is the **Meta-Level Continuity Protocol** that penetrates the entire Phase A–D.
+STOP v2.0 is not a state or event within the LogosWeaver Runtime.
+It is a higher-level working protocol that prevents structural over-convergence, conceptual confusion, premature approval, and layer mixing during the Designer–Architect co-design process, allowing the current reasoning or design progress to stop and re-establish boundaries, distinctions, and questions when necessary.
 
-STOP v2.0은 LogosWeaver Runtime 내부의 상태나 사건이 아니다.  
-이는 Designer–Architect 공동 설계 과정에서 구조적 과잉수렴, 개념적 혼동, 성급한 승인, 층위 혼합을 방지하고, 필요한 경우 현재의 사고 또는 설계 진행을 중지하여 경계·구분·질문을 다시 세우도록 하는 상위 작업 규약이다.
+In Phase A–D, STOP v2.0 was continuously applied as follows:
+- Phase A — Philosophy & Identity: Prevented premature identification of concepts and early fixation of identity.
+- Phase B — Compiler Architecture: Prevented mixing of different engineering layers and responsibilities.
+- Phase C — Governance & Commons: Prevented premature approval of Semantic Figures as Semantic Units.
+- Phase D — Runtime & Implementation: Prevented premature identification of Resonance, Identity, Mutation, Reuse, Convergence, and Execution Conditions.
+#### 16.1 Meta-Level STOP and Runtime STOP Distinction
 
-Phase A–D에서 STOP v2.0은 다음과 같이 지속적으로 적용되었다.
-
-- Phase A — Philosophy & Identity: 개념의 성급한 동일화와 정체성의 조기 확정을 방지
-    
-- Phase B — Compiler Architecture: 서로 다른 공학적 층위와 책임을 혼합하는 것을 방지
-    
-- Phase C — Governance & Commons: Semantic Figure를 Semantic Unit으로 성급하게 승인하는 것을 방지
-    
-- Phase D — Runtime & Implementation: Resonance, Identity, Mutation, Reuse, Convergence 및 Execution Condition을 성급하게 동일시하는 것을 방지
-    
-
-#### 16.1 Meta-Level STOP과 Runtime STOP의 구분
-
-Phase D에서 `STOP`이라는 원리가 Runtime 설계 내부로 내려오면서, 다음 두 개념을 명확히 구분한다.
+As the STOP principle descended into the Runtime design in Phase D, the following two concepts are clearly distinguished:
 
 **SYSTEM PROTOCOL: STOP v2.0**
 
 - Meta-Level Protocol
-    
-- Designer–Architect 및 전체 LogosWeaver 설계 과정에 적용
-    
-- 설계와 추론의 진행 방식을 규율
-    
-- 현재의 전제와 구조를 다시 질문하도록 함
-    
+- Applied to the Designer–Architect and the overall LogosWeaver design process
+- Regulates the method of design and reasoning
+- Prompts re-questioning of current premises and structures
 
 **Runtime STOP Event**
 
 - Runtime-Level Event
-    
-- Runtime 내부에서 Semantic Figure의 상태 전이가 충분히 결정되지 않은 경우 발생
-    
-- Boundary, Distinction, Evidence, Identity Review, Lineage Review 등의 추가 검토를 요구할 수 있음
-    
-- 영구적인 종료가 아니라 unresolved state transition을 강제로 수렴시키지 않기 위한 중지 사건
-    
+- Occurs when the state transition of a Semantic Figure is not sufficiently determined within the Runtime
+- May require additional reviews such as Boundary, Distinction, Evidence, Identity Review, Lineage Review, etc.
+- A suspension event to avoid forcing unresolved state transitions into convergence, rather than a permanent termination
 
-따라서 다음의 관계를 유지한다.
+Therefore, the following relationship is maintained:
 
 > **STOP v2.0 governs the reasoning process; Runtime STOP Event governs unresolved state transitions.**
 
-Runtime STOP Event는 STOP v2.0과 **동일한 객체가 아니며**, STOP v2.0의 설계 원리가 Runtime에서 하나의 operational mechanism으로 번역된 것으로 본다.
+The Runtime STOP Event is **not the same object** as STOP v2.0; it is viewed as the translation of the STOP v2.0 design principle into an operational mechanism within the Runtime.
 
 #### 16.2 Continuity Principle
 
-Phase A–D의 연속성은 `STOP`이라는 단어 자체의 동일성에 의해 유지되는 것이 아니라, 다음의 구조적 원리에 의해 유지된다.
+The continuity of Phase A–D is maintained not by the identity of the word "STOP" itself, but by the following structural principle:
 
 > **Unresolved structure must not be forced into premature resolution.**
 
-따라서 STOP은 다음을 위한 장치이다.
+Thus, STOP is a device for:
 
 `Stop → Question → Boundary → Distinction → Evidence → Re-evaluation → Transition`
 
-단, 이 흐름은 모든 경우에 동일한 결과를 요구하지 않는다.
-
-검토 이후에도 충분한 근거가 확보되지 않는다면 Figure는 unresolved 상태에 머무를 수 있으며, STOP은 실패나 거부가 아니라 **정당한 상태 보존(state preservation)**으로 간주된다.
-
-#### 16.3 Phase D 이후의 의미
-
-Phase D에서 Runtime STOP Event가 도입되면서 STOP v2.0의 계보는 다음과 같이 이해한다.
-
-`STOP v2.0`  
-→ `Design Principle`  
-→ `Runtime Operationalization`  
+However, this flow does not require the same result in all cases.
+If sufficient evidence is not secured even after review, the Figure may remain in an unresolved state, and STOP is regarded as **justifiable state preservation**, not failure or rejection.
+#### 16.3 Meaning After Phase D
+With the introduction of the Runtime STOP Event in Phase D, the lineage of STOP v2.0 is understood as follows:
+`STOP v2.0`
+→ `Design Principle`
+→ `Runtime Operationalization`
 → `Runtime STOP Event`
 
-따라서 Runtime STOP Event의 존재는 STOP v2.0의 대체가 아니라, Phase A–D를 관통한 STOP 원리가 Runtime 층위까지 연속적으로 번역되었음을 의미한다.
-
-STOP v2.0은 Runtime을 통제하지 않는다. Runtime STOP Event는 STOP v2.0을 실행하지 않는다.
+Therefore, the existence of the Runtime STOP Event signifies that the STOP principle that penetrated Phase A–D has been continuously translated down to the Runtime layer, rather than replacing STOP v2.0.
+STOP v2.0 does not control the Runtime. The Runtime STOP Event does not execute STOP v2.0.
 
 
 ### 17. Phase D Experimental Closure
 
-Phase D의 결정적 테스트는 D_33에서 종료한다.
-
-이후 추가적인 자기 테스트는 새로운 검증보다 테스트 자체가 시스템의 경계를 넘어서는 위험이 있으므로, 현재 결과를 Specification으로 고정한다.
-
-따라서:
+The decisive testing of Phase D concludes with D_33.
+Since further self-testing poses a risk of the test itself exceeding the system's boundaries rather than providing new verification, the current results are fixed as the Specification.
+Therefore:
 
 ```text
 Phase D Experimental Testing
 = CLOSED
 ```
 
-이다.
-
 ### 18. Current Knowledge Status
 
-모든 핵심 개념은 다음 세 상태 중 하나로 관리한다.
+All core concepts are managed in one of the following three states:
 
 ```text
 DEFINED
 ```
 
-현재 공학적으로 사용할 수 있도록 정의된 것.
+What is currently defined for engineering use.
 
 ```text
 OPERATIONAL CANDIDATE
 ```
 
-실행 가능한 정의 후보이지만 반복적인 Runtime 관찰을 통해 추가 검증되어야 하는 것.
+Actionable definition candidates that must be further verified through repeated Runtime observations.
 
 ```text
 OPEN
 ```
 
-아직 정의하지 않는 것이 더 정확한 것.
+What is more accurate to leave undefined for now.
 
 ### 19. Implementation Handoff
 
-Phase A–D에서 다음 구현 영역으로 전달한다.
+The following areas are handed off from Phase A–D to the implementation stage:
 
 ```text
 Semantic Figure Model
@@ -502,13 +432,12 @@ Trace
 STOP Mechanism
 ```
 
-Commons와 Community의 완전한 구현은 Runtime MVP 이후 단계에서 다룬다.
+Full implementation of Commons and Community will be handled in stages following the Runtime MVP.
 
 ### 20. Continuity Rule for Next Session
 
-다음 세션에서는 Phase A–D의 철학적·구조적 논의를 처음부터 다시 수행하지 않는다.
-
-다음 세션의 기본 출발점은:
+In the next session, philosophical and structural discussions from Phase A–D will not be conducted from scratch.
+The basic starting point for the next session is:
 
 ```text
 Phase A–D
@@ -520,11 +449,6 @@ Runtime Specification v1.0
 Implementation Cycle
 ```
 
-이다.
-
-새로운 모순이 발견될 경우에만 이전 Phase의 정의를 재개방한다.
-
-그렇지 않은 경우 Phase A–D는 Design Lineage로 보존한다.
-
-----
+The definitions of previous Phases will be reopened only if new contradictions are discovered.
+Otherwise, Phase A–D will be preserved as the Design Lineage.
 

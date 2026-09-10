@@ -56,6 +56,7 @@ It does not establish semantic preservation by itself.
 This preserves the inherited E4-F05 principle:
 
 > 기록과 보존은 절대 동일하지 않다.
+> Recording and preservation are never identical.
 
 Trace, Event, and Lineage records are therefore not automatically equivalent to independent preservation of prior meaning.
 
