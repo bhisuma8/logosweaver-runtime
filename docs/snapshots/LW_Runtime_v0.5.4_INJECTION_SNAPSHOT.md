@@ -1,6 +1,6 @@
 # LogosWeaver Runtime v0.5.4 — Canonical Injection Snapshot
 
-> This snapshot preserves the supplied v0.5.4 FULL SOURCE baseline, applies only the E.5-approved `SemanticCondition` refinement to `models.py` and `__init__.py`, and appends the behavioral evaluation and lifecycle evidence tests subsequently synchronized to GitHub from E.2/E.3 through F.4. The pre-refinement FULL SOURCE is not duplicated as a separate repository artifact.
+> This snapshot preserves the supplied v0.5.4 FULL SOURCE baseline, applies only the E.5-approved `SemanticCondition` refinement to `models.py` and `__init__.py`, and includes the behavioral evaluation and lifecycle evidence tests from E.2/E.3 through F.5. The pre-refinement FULL SOURCE is not duplicated as a separate repository artifact.
 
 ## 01 — Original v0.5.4 Injection Baseline with Approved Source Refinement
 
@@ -41,6 +41,9 @@
     test_f4_life_fixture_v01.py 
     test_f4_observed_state_transition_fixture_v01.py
     test_f4_resonance_candidate_fixture_v01.py
+
+    `Add F.5 bounded Runtime MVP evidence reconstruction fixture`
+    test_f5_runtime_mvp_lineage_fixture_v01.py
 
 ----
 ## LogosWeaver Runtime v0.5.4
@@ -1110,7 +1113,6 @@ if __name__ == "__main__":
     unittest.main()
 ```
 
-
 ----
 ## `test_response_emitter_v05.py`
 
@@ -2071,4 +2073,60 @@ class FigureScopedBoundaryV05Tests(unittest.TestCase):
 if __name__ == "__main__":
     unittest.main()
 ```
+
+----
+# 03 — F.5 Closure / Continuity Synchronization
+
+**Phase:** F.5 — Runtime MVP Evidence Reconstruction  
+**Runtime Baseline:** v0.5.4  
+**Runtime Status:** Behavioral Freeze  
+**F.5 Status:** PASS  
+**Continuity:** F.3 = Birth → F.4 = Life / lifecycle-Lineage boundary measurement → F.5 = bounded Runtime MVP evidence reconstruction → F.6 = repository integration / pre-boundary research
+
+F.5 established a bounded evidence reconstruction using existing Runtime primitives and test-controlled composition. No production bridge was required for this proof.
+
+Authoritative fixture:
+
+```text
+tests/test_f5_runtime_mvp_lineage_fixture_v01.py
+```
+
+The fixture is test-controlled, uses explicit lifecycle transitions and explicit Lineage composition, and is not a Mutation Engine or Identity Engine. Its essential evidence chain is:
+
+```text
+Figure A
+→ registration
+→ Boundary / Resonance / Executable
+→ ExecutionContract
+→ PASS Judges
+→ EXECUTION_AUTHORIZED
+→ EXECUTED
+→ OBSERVED
+→ IDENTITY_REVIEW
+→ MUTATED state evidence
+→ explicit Figure B
+→ explicit A→B Lineage
+→ runtime.add_lineage()
+→ LINEAGE_RECORDED
+→ Figure-scoped Trace
+```
+
+This evidence preserves the following boundary: explicit state is not an automatic semantic engine; Figure B is explicitly constructed; `MUTATED_FROM` is representational Lineage; `add_lineage()` records Lineage but does not perform mutation; and `LINEAGE_RECORDED` is recording evidence, not semantic preservation.
+
+Judge / STOP remains inherited continuity evidence. The F.5 fixture itself uses PASS-only Judges and does not directly exercise a STOP path.
+
+Reported results:
+
+```text
+F.5 fixture: reported PASS
+Full suite: reported 78 tests PASS
+```
+
+The repository contains no durable execution record proving that all 78 tests were executed successfully. These therefore remain reported results, not repository-recorded execution evidence.
+
+F.5 production modification = 0. It adds no production API, model, event, state, ontology, or semantic engine. The earlier E.5 `SemanticCondition` representation refinement is not an F.5 modification.
+
+F.5 does not establish an Identity Engine, Mutation Engine, automatic execution, automatic observation, semantic Identity evaluation, automatic Mutation, automatic resulting-Figure derivation, automatic preservation, RAG, Lounge integration, LLM integration, or a public API/deployment.
+
+F.5 is a closure / continuity phase, not a Runtime release. The v0.5.4 Runtime remains behaviorally frozen.
 
