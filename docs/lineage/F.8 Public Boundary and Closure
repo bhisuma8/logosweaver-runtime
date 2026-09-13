@@ -1,0 +1,112 @@
+# LogosWeaver F.8 — Public Boundary and Closure
+
+## Status
+
+**F.8 — CLOSED**
+
+**Runtime:** v0.5.4  
+**Current lineage:** v0.5  
+**Runtime status:** Behavioral Freeze
+
+## Public Runtime Checkpoint
+
+The LogosWeaver Runtime remains publicly available at the v0.5.4 / F.8 checkpoint.
+
+The v0.5.4 Runtime behavioral baseline remains preserved.
+
+F.8 introduces no Runtime production-source modification, new Runtime capability, or new Runtime version.
+
+## Public Repository Boundary
+
+The public repository exposes Runtime source, executable tests, documentation, freeze and continuity records, and repository provenance.
+
+External repository activity may include forks, branches, commits, diffs, issues, pull requests, and modifications.
+
+These activities do not by themselves establish:
+
+- Semantic Lineage
+    
+- Identity Continuity
+    
+- Semantic Membership
+    
+- Governance Membership
+    
+- Official Semantic Interpretation
+    
+
+Therefore:
+
+**Public Exposure ≠ Semantic Lineage**  
+**Repository Activity ≠ Semantic Membership**  
+**Modification ≠ Lineage**  
+**Fork ≠ Semantic Lineage**  
+**Observation ≠ Membership**
+
+## Further Research
+
+Further research toward the Personal Lounge proceeds separately in a private research environment.
+
+The private research environment is not presented as:
+
+- Runtime v0.5.5
+    
+- a new Runtime release
+    
+- a private branch of the public repository
+    
+- a semantic successor
+    
+- the Lounge itself
+    
+- automatic Semantic Lineage
+    
+- automatic Semantic Membership
+    
+
+The public Runtime remains the preserved v0.5.4 checkpoint.
+
+The private research environment uses that checkpoint as research provenance only.
+
+**Research Provenance ≠ Semantic Lineage**
+
+## Personal Lounge
+
+The Personal Lounge remains an open research subject.
+
+F.8 does not define the Lounge as a library, archive, document repository, knowledge base, Obsidian vault, or Runtime extension.
+
+No Lounge implementation, medium, ontology, preservation mechanism, or Runtime re-entry mechanism is established by F.8.
+
+Obsidian remains a possible medium, not the definition of the Lounge.
+
+## Open Research Boundary
+
+F.8 intentionally leaves open questions concerning:
+
+- how a meaning may remain encounterable after Runtime approval
+    
+- whether meaningful continuity can persist across different representations
+    
+- whether representation must be linguistic
+    
+- what minimum evidence could support recognition of the same meaning across representations
+    
+- what preservation means within a space-oriented Lounge
+    
+- how, if at all, Runtime and Lounge may later interact
+    
+
+These questions are deferred to Phase G research.
+
+## Closure
+
+F.8 closes the public boundary without closing the Lounge.
+
+The Runtime remains publicly preserved at v0.5.4.
+
+Further research proceeds separately in a private environment.
+
+No claim of Semantic Lineage, Identity Continuity, or Semantic Membership is made solely from this transition.
+
+**F.8 CLOSED.**
